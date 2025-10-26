@@ -3,3 +3,5 @@ scikit-learn
 matplotlib
 joblib
 streamlit
+pandasql
+plotly
