@@ -24,7 +24,8 @@ def get_cached_data():
 raw_dataset, encoded_dataset, knn_reg_loaded, scaler_loaded = get_cached_data()
 
 
-feature_columns = ["preg", "plas", "pres", "skin", "insu", "mass", "pedi", "age"]
+feature_columns = ["preg", "plas", "pres",
+                   "skin", "insu", "mass", "pedi", "age"]
 outcome_labels = {0: "Tested Negative", 1: "Tested Positive"}
 
 
@@ -147,7 +148,7 @@ with predict_tab:
         ]
         prediction_results = predict_diabetes(feature_values)
         confidence_pct = prediction_results["confidence"] * 100
-        predicted_label = f"{outcome_labels[prediction_results["prediction"]]} "
+        predicted_label = f"{outcome_labels[prediction_results['prediction']]}"
         color_positive = "#c0392b"
         color_negative = "#16a085"
         if prediction_results["prediction"] == 0:
@@ -158,7 +159,8 @@ with predict_tab:
         with c1:
             st.metric("Outcome", predicted_label, border=True)
         with c2:
-            st.metric("Model Confidence", f"{confidence_pct:.1f} %", border=True)
+            st.metric("Model Confidence",
+                      f"{confidence_pct:.1f} %", border=True)
         with c3:
             if prediction_results["prediction"] == 0:
                 recomendation = "Maintaining a healthy lifestyle."
